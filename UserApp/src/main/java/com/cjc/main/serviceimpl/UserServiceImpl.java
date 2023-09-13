@@ -13,10 +13,16 @@ public class UserServiceImpl implements UserService {
 	UserRepository ur;
 
 	@Override
+
 	public User davedata(User u) {
 	User use=	ur.save(u);
 		
 		return use;
+	}
+	public Iterable<User> getAllData() {
+		Iterable<User> user=ur.findAll();
+		return user;
+
 	}
 
 }
