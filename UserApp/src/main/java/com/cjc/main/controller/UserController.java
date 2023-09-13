@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,7 @@ public class UserController {
 		return new ResponseEntity<Iterable<User>>(user, HttpStatus.OK);
 	}
 
+
 	
 	
 	@DeleteMapping("/deletedata/{uId}")
@@ -53,5 +55,13 @@ public class UserController {
 	}
 	
 	
+
+	
+	@PutMapping("/update")
+	public ResponseEntity<User> updateData(@RequestBody User u){
+		User user= us.davedata(u);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+		
+	}
 
 }
