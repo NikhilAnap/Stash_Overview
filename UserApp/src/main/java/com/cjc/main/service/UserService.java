@@ -9,6 +9,8 @@ public interface UserService {
 	public User davedata(User u);
 
 	Iterable<User> getAllData();
+
+	public User getSingle(int id);
   
 
 	public void deletedata(int uId);

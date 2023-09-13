@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cjc.main.model.User;
@@ -29,15 +30,14 @@ public class UserController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<User> saveData(@RequestBody User u) {
-		User user= us.davedata(u);
+		User user = us.davedata(u);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
-		
+
 	}
 
-
 	@GetMapping("/getall")
-	public ResponseEntity<Iterable<User>> getAllData(){
-		Iterable<User> user=us.getAllData();
+	public ResponseEntity<Iterable<User>> getAllData() {
+		Iterable<User> user = us.getAllData();
 		return new ResponseEntity<Iterable<User>>(user, HttpStatus.OK);
 	}
 
@@ -64,4 +64,12 @@ public class UserController {
 		
 	}
 
+	@GetMapping("/getSingle/{id}")
+	public ResponseEntity<User> getSingle(@PathVariable int id) {
+		
+		User user = us.getSingle(id);
+
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+
+	}
 }

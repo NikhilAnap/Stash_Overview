@@ -1,5 +1,7 @@
 package com.cjc.main.serviceimpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +19,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 
 	public User davedata(User u) {
-	User use=	ur.save(u);
-		
+		User use = ur.save(u);
+
 		return use;
 	}
+
 	public Iterable<User> getAllData() {
-		Iterable<User> user=ur.findAll();
+		Iterable<User> user = ur.findAll();
 		return user;
 
 	}
@@ -37,5 +40,17 @@ public class UserServiceImpl implements UserService {
 	
 	
 	
-	
+	public User getSingle(int id) {
+
+		Optional<User> user = ur.findById(id);
+
+		if (user.isPresent()) {
+
+			return user.get();
+
+		}
+
+		return null;
+	}
+
 }
